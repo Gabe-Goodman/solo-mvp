@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import "./Dashboard.css";
-import { auth, db, logout } from "./firebase";
-function Dashboard() {
+import { auth, db, logout } from "../firebase";
+import Map from "./Map";
+
+function Dashboard(props) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const history = useHistory();
@@ -25,8 +27,21 @@ function Dashboard() {
     if (!user) return history.replace("/");
     fetchUserName();
   }, [user, loading]);
+  // return (
+  //   <div className="dashboard">
+  // <div className="dashboard__container">
+  //   Logged in as
+  //   <div>{name}</div>
+  //   <div>{user?.email}</div>
+  //   <button className="dashboard__btn" onClick={logout}>
+  //     Logout
+  //   </button>
+  // </div>
+  //   </div>
+  // );
   return (
-    <div className="dashboard">
+    <div>
+      <Map id="map" locations={props.locations} />
       <div className="dashboard__container">
         Logged in as
         <div>{name}</div>
