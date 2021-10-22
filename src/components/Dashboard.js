@@ -27,6 +27,41 @@ function Dashboard(props) {
     if (!user) return history.replace("/");
     fetchUserName();
   }, [user, loading]);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        getCoordinates,
+        handleLocationError
+      );
+    } else alert("Geolocation is not supported by this browser.");
+  };
+
+  const getCoordinates = (position) => {
+    props.setUserLocation({
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    });
+    console.log(props.userLocation);
+  };
+
+  function handleLocationError(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+    }
+  }
+
   // return (
   //   <div className="dashboard">
   // <div className="dashboard__container">
@@ -41,7 +76,12 @@ function Dashboard(props) {
   // );
   return (
     <div>
-      <Map id="map" locations={props.locations} />
+      <Map
+        id="map"
+        locations={props.locations}
+        userLocation={props.userLocation}
+      />
+      {/* <div className="dashboard"> */}
       <div className="dashboard__container">
         Logged in as
         <div>{name}</div>
@@ -49,6 +89,10 @@ function Dashboard(props) {
         <button className="dashboard__btn" onClick={logout}>
           Logout
         </button>
+        <button className="dashboard__btn" onClick={getLocation}>
+          Get Coordinates
+        </button>
+        {/* </div> */}
       </div>
     </div>
   );
