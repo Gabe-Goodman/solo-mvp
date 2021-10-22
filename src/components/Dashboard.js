@@ -62,24 +62,13 @@ function Dashboard(props) {
     }
   }
 
-  // return (
-  //   <div className="dashboard">
-  // <div className="dashboard__container">
-  //   Logged in as
-  //   <div>{name}</div>
-  //   <div>{user?.email}</div>
-  //   <button className="dashboard__btn" onClick={logout}>
-  //     Logout
-  //   </button>
-  // </div>
-  //   </div>
-  // );
   return (
     <div>
       <Map
         id="map"
         locations={props.locations}
         userLocation={props.userLocation}
+        getLocation={getLocation}
       />
       {/* <div className="dashboard"> */}
       <div className="dashboard__container">
@@ -89,9 +78,9 @@ function Dashboard(props) {
         <button className="dashboard__btn" onClick={logout}>
           Logout
         </button>
-        <button className="dashboard__btn" onClick={getLocation}>
+        {/* <button className="dashboard__btn" onClick={getLocation}>
           Get Coordinates
-        </button>
+        </button> */}
         {/* </div> */}
       </div>
     </div>
