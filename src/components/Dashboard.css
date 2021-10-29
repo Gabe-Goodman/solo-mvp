@@ -10,16 +10,29 @@
   flex-direction: column;
   text-align: center;
   background-color: #dcdcdc;
-  padding: 30px;
+  padding: 2.5vh;
+  height: 10vh;
 }
 .dashboard__btn {
   padding: 10px;
   font-size: 18px;
   margin-top: 10px;
+  /* width: 40vh; */
   border: none;
   color: white;
   background-color: black;
 }
+
+.favorites__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  /* width: 40vh; */
+  border: none;
+  color: white;
+  background-color: rgb(255, 0, 0);
+}
+
 .dashboard div {
   margin-top: 7px;
 }

@@ -8,6 +8,7 @@ function App() {
   //state
   const [locations, setLocations] = useState(data);
   const [userLocation, setUserLocation] = useState();
+  const [selectedLocation, setSelectedLocation] = useState();
   console.log(locations);
 
   return (
@@ -26,6 +27,8 @@ function App() {
                 setLocations={setLocations}
                 userLocation={userLocation}
                 setUserLocation={setUserLocation}
+                selectedLocation={selectedLocation}
+                setSelectedLocation={setSelectedLocation}
               />
             )}
           />
