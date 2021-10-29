@@ -23,7 +23,6 @@ function Dashboard(props) {
       const data = await query.docs[0].data();
       setName(data.name);
       setUid(data.uid);
-      setDoc(data.doc);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -31,7 +30,7 @@ function Dashboard(props) {
   };
 
   async function addToFavorites() {
-    const cityRef = db.collection("users").doc(doc);
+    const cityRef = db.collection("favorites").doc();
     const setWithMerge = cityRef.set(
       {
         capital: true,
