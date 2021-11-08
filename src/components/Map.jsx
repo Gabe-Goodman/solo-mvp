@@ -207,15 +207,6 @@ const exampleMapStyles = [
     ]
   },
   {
-    "featureType": "road",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#211d82"
-      }
-    ]
-  },
-  {
     "featureType": "road.arterial",
     "elementType": "labels",
     "stylers": [
@@ -275,15 +266,6 @@ const exampleMapStyles = [
     "stylers": [
       {
         "color": "#ffffff"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#1f1d80"
       }
     ]
   },
