@@ -11,6 +11,10 @@
 	height: 10vh;
 } */
 
+.venue__name {
+	font-weight: bold;
+}
+
 .dashboard__container {
 	font-size: 18px;
 	display: flex;

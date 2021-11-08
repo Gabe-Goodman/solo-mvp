@@ -115,7 +115,7 @@ function Dashboard(props) {
 			/>
 			{props.selectedLocation ? (
 				<div className="dashboard__container">
-					<div>{props.selectedLocation.title}</div>
+					<div className="venue__name">{props.selectedLocation.title}</div>
 					<div>({props.selectedLocation.type})</div>
 					<button
 						className="dashboard__btn"
@@ -124,7 +124,7 @@ function Dashboard(props) {
 							window.location.href = `${props.selectedLocation.link}`;
 						}}
 					>
-						Take me here!
+						Take me there!
 					</button>
 				</div>
 			) : (
