@@ -1,0 +1,210 @@
+[
+  {
+    "key": 1,
+    "name": "SHIMOKITA FRONT",
+    "type": "Restaurants",
+    "position": {
+      "lat": 35.662026826858714,
+      "lng": 139.66763106924924
+    },
+    "link": "https://goo.gl/maps/JHcWp4w8msFFNobLA"
+  },
+
+  {
+    "key": 2,
+    "name": "Barnitas",
+    "type": "Bar",
+    "position": {
+      "lat": 35.66330609214961,
+      "lng": 139.6690386288505
+    },
+    "link": "https://goo.gl/maps/rwhBZd3VUuS1x9xm6"
+  },
+
+  {
+    "key": 3,
+    "name": "Grow Bar Joint",
+    "type": "Bar",
+    "position": {
+      "lat": 35.66345193719454,
+      "lng": 139.66922936388622
+    },
+    "link": "https://goo.gl/maps/Vkdet6sTtDN8fXD6A"
+  },
+
+  {
+    "key": 4,
+    "name": "Kamay Kitchen",
+    "type": "Restaurants",
+    "position": {
+      "lat": 35.66329828031547,
+      "lng": 139.66872641296135
+    },
+    "link": "https://goo.gl/maps/zcZuLHHURzcas2BV8"
+  },
+
+  {
+    "key": 5,
+    "name": "Bar Ghetto",
+    "type": "Bar",
+    "position": {
+      "lat": 35.66269217115575,
+      "lng": 139.6702736877226
+    },
+    "link": "https://goo.gl/maps/Upbf1rWtDWrWHTPW9"
+  },
+
+  {
+    "key": 6,
+    "name": "Cafe Stay Happy",
+    "type": "Restaurant",
+    "position": {
+      "lat": 35.660613184422374,
+      "lng": 139.66921611342735
+    },
+    "link": "https://g.page/suteha?share"
+  },
+
+  {
+    "key": 7,
+    "name": "CAFE KOYOI",
+    "type": "Cafe",
+    "position": {
+      "lat": 35.65893666619309,
+      "lng": 139.6682057625027
+    },
+    "link": "https://goo.gl/maps/vg89z2dVDeJ4RUqv6"
+  },
+
+  {
+    "key": 8,
+    "name": "RBL CAFE",
+    "type": "Cafe",
+    "position": {
+      "lat": 35.65900701910161,
+      "lng": 139.6680707354309
+    },
+    "link": "https://goo.gl/maps/WnhgMHV9ktrtcWTQ9"
+  },
+
+  {
+    "key": 9,
+    "name": "Hachigatsu",
+    "type": "Restaurant",
+    "position": {
+      "lat": 35.65941082071413,
+      "lng": 139.6676590380023
+    },
+    "link": "https://g.page/8gatsu?share"
+  },
+
+  {
+    "key": 10,
+    "name": "MOTHER",
+    "type": "Bar",
+    "position": {
+      "lat": 35.65919647337854,
+      "lng": 139.66728915711414
+    },
+    "link": "https://goo.gl/maps/MTp1J4gHiYVNnynL7"
+  },
+
+  {
+    "key": 11,
+    "name": "Nasu Oyaji",
+    "type": "Restaurant",
+    "position": {
+      "lat": 35.65931328669757,
+      "lng": 139.6668748802937
+    },
+    "link": "https://goo.gl/maps/xhS9p73KmAnt3KzL9"
+  },
+
+  {
+    "key": 12,
+    "name": "Darwin Room",
+    "type": "Book Store & Cafe",
+    "position": {
+      "lat": 35.658751743588745,
+      "lng": 139.66748219984865
+    },
+    "link": "https://goo.gl/maps/mJNNXS6PPtJNgpjh7"
+  },
+
+  {
+    "key": 13,
+    "name": "Rhythm9",
+    "type": "Select Shop",
+    "position": {
+      "lat": 35.658656747057336,
+      "lng": 139.66751804280557
+    },
+    "link": "https://goo.gl/maps/mJNNXS6PPtJNgpjh7"
+  },
+
+  {
+    "key": 14,
+    "name": "nikki",
+    "type": "Hair salon",
+    "position": {
+      "lat": 35.65777311893037,
+      "lng": 139.66807588912405
+    },
+    "link": "https://goo.gl/maps/xAL7LMHWuyuMQBnDA"
+  },
+
+  {
+    "key": 15,
+    "name": "Film",
+    "type": "Thrift Store",
+    "position": {
+      "lat": 35.6578187330274,
+      "lng": 139.66799430119138
+    },
+    "link": "https://goo.gl/maps/E5qMcdoDSNyX5EdR9"
+  },
+
+  {
+    "key": 16,
+    "name": "COFFEA EXLIBRIS",
+    "type": "Cafe",
+    "position": {
+      "lat": 35.657519139078694,
+      "lng": 139.66780425942886
+    },
+    "link": "https://goo.gl/maps/3Sji2zJJp52evBrE7"
+  },
+
+  {
+    "key": 17,
+    "name": "Titchai",
+    "type": "Restaurant",
+    "position": {
+      "lat": 35.6582908905443,
+      "lng": 139.6669959864289
+    },
+    "link": "https://g.page/titchaisimokita?share"
+  },
+
+  {
+    "key": 18,
+    "name": "Mahina Pharmacy",
+    "type": "Herb Shop",
+    "position": {
+      "lat": 35.65801692186404,
+      "lng": 139.66736412814464
+    },
+    "link": "https://goo.gl/maps/KbQ1emjhVE3g6afq9"
+  },
+
+  {
+    "key": 19,
+    "name": "Kiryuusha",
+    "type": "Used book store",
+    "position": {
+      "lat": 35.658031087468785,
+      "lng": 139.66745733490438
+    },
+    "link": "https://goo.gl/maps/F5FH5PzuD7kfmJyX7"
+  }
+]

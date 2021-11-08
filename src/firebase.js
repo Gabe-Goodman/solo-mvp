@@ -70,6 +70,7 @@ const logout = () => {
   auth.signOut();
 };
 export {
+  app,
   auth,
   db,
   signInWithGoogle,
