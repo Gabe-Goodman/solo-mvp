@@ -332,8 +332,8 @@ options={{
       styles: exampleMapStyles,
     }}
     ref={props.onMapLoad}
-    defaultZoom={16.5}
-    defaultCenter={{ lat: 35.66053397938023, lng: 139.66747550291967 }}
+    defaultZoom={16.35}
+    defaultCenter={{ lat: 35.66125607391368, lng: 139.6682804608054 }}
     // onClick={props.onMapClick}
   >
     {props.markers.map((marker) => (

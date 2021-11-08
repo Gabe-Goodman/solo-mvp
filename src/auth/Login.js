@@ -58,10 +58,10 @@ function Login() {
           Login with Google
         </button>
         <div>
-          <Link to="/reset">Forgot Password</Link>
+          Forgot your password? <Link to="/reset">Password reset</Link>
         </div>
         <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+          Don't have an account? <Link to="/register">Sign up now</Link>
         </div>
       </div>
     </div>

@@ -46,13 +46,13 @@ function Register() {
           placeholder="Password"
         />
         <button className="register__btn" onClick={register}>
-          Register
+          Sign up
         </button>
         <button
           className="register__btn register__google"
           onClick={signInWithGoogle}
         >
-          Register with Google
+          Sign up with Google
         </button>
         <div>
           Already have an account? <Link to="/">Login</Link> now.
