@@ -132,7 +132,7 @@ function Dashboard(props) {
 					<div>{"Click a candle"}</div>
 					<div>{"to learn more!"}</div>
 					<button className="dashboard__btn" onClick={logout}>
-						Logout
+						Sign out
 					</button>
 				</div>
 			)}

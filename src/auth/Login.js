@@ -52,16 +52,16 @@ function Login() {
           className="login__btn"
           onClick={() => signInWithEmailAndPassword(email, password)}
         >
-          Login
+          Sign in
         </button>
         <button className="login__btn login__google" onClick={signInWithGoogle}>
-          Login with Google
+          Sign in with Google
         </button>
         <div>
           Forgot your password? <Link to="/reset">Password reset</Link>
         </div>
         <div>
-          Don't have an account? <Link to="/register">Sign up now</Link>
+          Don't have an account? <Link to="/register">Sign up</Link>
         </div>
       </div>
     </div>
