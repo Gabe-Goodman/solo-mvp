@@ -7,6 +7,7 @@ import {
 } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,9 +20,20 @@ function Login() {
     }
     if (user) history.replace("/dashboard");
   }, [user, loading]);
+
+  var sectionStyle = {
+    backgroundImage: "url(" + "https://www.shimokitazawa.info/wp-content/uploads/2021/06/komichinonoel-2021s.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
+
   return (
-    <div className="login">
+    <div>
+    <div className="login"
+    style={{sectionStyle}}>
       <div className="login__container">
+      <img src="https://www.shimokitazawa.info/wp-content/uploads/2021/06/komichinonoel-2021s.jpg" alt="Noel festival" class="festival__banner"/>
         <input
           type="text"
           className="login__textBox"
@@ -52,6 +64,7 @@ function Login() {
           Don't have an account? <Link to="/register">Register</Link> now.
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { google, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import { isPropertySignature } from "typescript";
+import yellowCandle from "../candle_icon_bluebg.png"
 
 const exampleMapStyles = [
   {
@@ -64,10 +64,28 @@ const exampleMapStyles = [
   },
   {
     "featureType": "landscape.man_made",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#183594"
+      },
+      {
+        "lightness": -25
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
     "elementType": "geometry.stroke",
     "stylers": [
       {
-        "color": "#334e87"
+        "color": "#1f1d81"
+      },
+      {
+        "lightness": 50
+      },
+      {
+        "visibility": "on"
       }
     ]
   },
@@ -145,10 +163,28 @@ const exampleMapStyles = [
   },
   {
     "featureType": "road",
-    "elementType": "geometry",
+    "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#304a7d"
+        "color": "#12276f"
+      },
+      {
+        "saturation": -30
+      },
+      {
+        "lightness": 20
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#fbc602"
+      },
+      {
+        "visibility": "simplified"
       }
     ]
   },
@@ -166,7 +202,7 @@ const exampleMapStyles = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#98a5be"
+        "lightness": 100
       }
     ]
   },
@@ -175,16 +211,16 @@ const exampleMapStyles = [
     "elementType": "labels.text.stroke",
     "stylers": [
       {
-        "color": "#1d2c4d"
+        "color": "#211d82"
       }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "geometry",
+    "featureType": "road.arterial",
+    "elementType": "labels",
     "stylers": [
       {
-        "color": "#2c6675"
+        "visibility": "simplified"
       }
     ]
   },
@@ -193,7 +229,16 @@ const exampleMapStyles = [
     "elementType": "geometry.stroke",
     "stylers": [
       {
-        "color": "#255763"
+        "color": "#12276f"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
       }
     ]
   },
@@ -202,16 +247,25 @@ const exampleMapStyles = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#b0d5ce"
+        "color": "#334a9a"
       }
     ]
   },
   {
-    "featureType": "road.highway",
-    "elementType": "labels.text.stroke",
+    "featureType": "road.highway.controlled_access",
+    "elementType": "labels",
     "stylers": [
       {
-        "color": "#023e58"
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "on"
       }
     ]
   },
@@ -220,7 +274,7 @@ const exampleMapStyles = [
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#98a5be"
+        "color": "#ffffff"
       }
     ]
   },
@@ -229,7 +283,7 @@ const exampleMapStyles = [
     "elementType": "labels.text.stroke",
     "stylers": [
       {
-        "color": "#1d2c4d"
+        "color": "#1f1d80"
       }
     ]
   },
@@ -271,9 +325,10 @@ const exampleMapStyles = [
   }
 ];
 
+
 // icon images from freesvg.org
 const shop = new window.google.maps.MarkerImage(
-  "https://cdn-icons-png.flaticon.com/512/628/628485.png",
+  yellowCandle,
   null /* size is determined at runtime */,
   null /* origin is 0,0 */,
   null /* anchor is bottom center of the scaled image */,

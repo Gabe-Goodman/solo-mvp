@@ -3,7 +3,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import "./Dashboard.css";
 import { auth, db, logout } from "../firebase";
-import { setDoc, doc, addDoc, collection, updateDoc } from "firestore";
 import "firebase/firestore";
 import Map from "./Map";
 
@@ -12,7 +11,6 @@ function Dashboard(props) {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const [uid, setUid] = useState("");
-  const [doc, setDoc] = useState("");
   const history = useHistory();
   const fetchUserName = async () => {
     try {
@@ -30,12 +28,14 @@ function Dashboard(props) {
   };
 
   async function addToFavorites() {
-    const cityRef = db.collection("favorites").doc();
-    const setWithMerge = cityRef.set(
-      {
-        capital: true,
-      },
-      { merge: true }
+    const newFavorite = db.collection("favorites").doc(uid);
+    const newLocation = props.selectedLocation.title;
+    const locationKey = props.selectedLocation.key;
+    const setWithMerge = newFavorite.push({
+      
+      newLocation
+      
+    }
     );
     // const docRef = await setDoc(doc(db, "favorites"), {
     //   name: "Los Angeles",
@@ -68,9 +68,10 @@ function Dashboard(props) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         getCoordinates,
-        handleLocationError
+        // handleLocationError
       );
-    } else alert("Geolocation is not supported by this browser.");
+    }
+    // else alert("Geolocation is not supported by this browser.");
   };
 
   const getCoordinates = (position) => {
@@ -81,22 +82,22 @@ function Dashboard(props) {
     console.log(props.userLocation);
   };
 
-  function handleLocationError(error) {
-    switch (error.code) {
-      case error.PERMISSION_DENIED:
-        alert("User denied the request for Geolocation.");
-        break;
-      case error.POSITION_UNAVAILABLE:
-        alert("Location information is unavailable.");
-        break;
-      case error.TIMEOUT:
-        alert("The request to get user location timed out.");
-        break;
-      case error.UNKNOWN_ERROR:
-        alert("An unknown error occurred.");
-        break;
-    }
-  }
+  // function handleLocationError(error) {
+  //   switch (error.code) {
+  //     case error.PERMISSION_DENIED:
+  //       alert("User denied the request for Geolocation.");
+  //       break;
+  //     case error.POSITION_UNAVAILABLE:
+  //       alert("Location information is unavailable.");
+  //       break;
+  //     case error.TIMEOUT:
+  //       alert("The request to get user location timed out.");
+  //       break;
+  //     case error.UNKNOWN_ERROR:
+  //       alert("An unknown error occurred.");
+  //       break;
+  //   }
+  // }
 
   console.log("selectedLocation", props.selectedLocation);
   console.log("uid", uid);
@@ -119,15 +120,14 @@ function Dashboard(props) {
         <div className="dashboard__container">
           <div>{props.selectedLocation.title}</div>
           <div>({props.selectedLocation.type})</div>
-          <button className="favorites__btn" onClick={addToFavorites}>
+          <button className="dashboard__btn" onClick={addToFavorites}>
             Add to Favorites
           </button>
         </div>
       ) : (
         <div className="dashboard__container">
-          Logged in as
-          <div>{name}</div>
-          <div>{user?.email}</div>
+          <div>{"Click a candle"}</div>
+          <div>{"to learn more!"}</div>
           <button className="dashboard__btn" onClick={logout}>
             Logout
           </button>

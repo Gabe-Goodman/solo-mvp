@@ -1,30 +1,48 @@
 .reset {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	/* background-image: url("https://www.shimokitazawa.info/wp-content/uploads/2021/06/komichinonoel-2021s.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center; */
+	justify-content: center;
+	background-color: #12276f;
 }
+
+.festival__banner {
+	border-radius: 2vh;
+	height: 25vh;
+	margin-bottom: 2vh;
+}
+
 .reset__container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: #dcdcdc;
-  padding: 30px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background-color: rgba(251, 198, 2);
+	padding: 2vh;
+	border-radius: 2vh;
 }
 .reset__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
+	padding: 10px;
+	font-size: 18px;
+	margin-bottom: 10px;
 }
 .reset__btn {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
-  background-color: black;
+	padding: 10px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	border: none;
+	color: white;
+	background-color: #12276f;
+	border-radius: 10px;
+}
+.reset__google {
+	background-color: #0072b4;
+	border-radius: 10px;
 }
 .reset div {
-  margin-top: 7px;
+	margin-top: 7px;
 }
