@@ -1,12 +1,13 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhYqjthsZ_I75BCbKrytwq67_uqfRQ-wU",
-  authDomain: "festival-finder-ae96d.firebaseapp.com",
-  projectId: "festival-finder-ae96d",
-  storageBucket: "festival-finder-ae96d.appspot.com",
-  messagingSenderId: "1014913747479",
-  appId: "1:1014913747479:web:b12f7ab6300be75db7aa52",
+	apiKey: "AIzaSyAzq70v-SN0dKSoP1dtwyz5iW_pkCg344A",
+	authDomain: "festival-finder-8b1d5.firebaseapp.com",
+	projectId: "festival-finder-8b1d5",
+	storageBucket: "festival-finder-8b1d5.appspot.com",
+	messagingSenderId: "1011150788796",
+	appId: "1:1011150788796:web:3f5270bbaa2aaff57e18b9",
+	measurementId: "G-E3CZ67CC73",
 };
 
 const app = firebase.initializeApp(firebaseConfig);
@@ -14,68 +15,68 @@ const auth = app.auth();
 const db = app.firestore();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 const signInWithGoogle = async () => {
-  try {
-    const res = await auth.signInWithPopup(googleProvider);
-    const user = res.user;
-    const query = await db
-      .collection("users")
-      .where("uid", "==", user.uid)
-      .get();
-    if (query.docs.length === 0) {
-      await db.collection("users").add({
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-      });
-    }
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
+	try {
+		const res = await auth.signInWithPopup(googleProvider);
+		const user = res.user;
+		const query = await db
+			.collection("users")
+			.where("uid", "==", user.uid)
+			.get();
+		if (query.docs.length === 0) {
+			await db.collection("users").add({
+				uid: user.uid,
+				name: user.displayName,
+				authProvider: "google",
+				email: user.email,
+			});
+		}
+	} catch (err) {
+		console.error(err);
+		alert(err.message);
+	}
 };
 const signInWithEmailAndPassword = async (email, password) => {
-  try {
-    await auth.signInWithEmailAndPassword(email, password);
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
+	try {
+		await auth.signInWithEmailAndPassword(email, password);
+	} catch (err) {
+		console.error(err);
+		alert(err.message);
+	}
 };
 const registerWithEmailAndPassword = async (name, email, password) => {
-  try {
-    const res = await auth.createUserWithEmailAndPassword(email, password);
-    const user = res.user;
-    await db.collection("users").add({
-      uid: user.uid,
-      name,
-      authProvider: "local",
-      email,
-    });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
+	try {
+		const res = await auth.createUserWithEmailAndPassword(email, password);
+		const user = res.user;
+		await db.collection("users").add({
+			uid: user.uid,
+			name,
+			authProvider: "local",
+			email,
+		});
+	} catch (err) {
+		console.error(err);
+		alert(err.message);
+	}
 };
 const sendPasswordResetEmail = async (email) => {
-  try {
-    await auth.sendPasswordResetEmail(email);
-    alert("Password reset link sent!");
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
+	try {
+		await auth.sendPasswordResetEmail(email);
+		alert("Password reset link sent!");
+	} catch (err) {
+		console.error(err);
+		alert(err.message);
+	}
 };
 const logout = () => {
-  auth.signOut();
+	auth.signOut();
 };
 export {
-  app,
-  auth,
-  db,
-  signInWithGoogle,
-  signInWithEmailAndPassword,
-  registerWithEmailAndPassword,
-  sendPasswordResetEmail,
-  logout,
+	app,
+	auth,
+	db,
+	signInWithGoogle,
+	signInWithEmailAndPassword,
+	registerWithEmailAndPassword,
+	sendPasswordResetEmail,
+	logout,
 };

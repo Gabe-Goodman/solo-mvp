@@ -11,6 +11,7 @@ function Dashboard(props) {
 	const [user, loading, error] = useAuthState(auth);
 	const [name, setName] = useState("");
 	const [uid, setUid] = useState("");
+	const [favorites, setFavorites] = useState();
 	const history = useHistory();
 	const fetchUserName = async () => {
 		try {
@@ -31,28 +32,31 @@ function Dashboard(props) {
 		const newFavorite = db.collection("favorites").doc(uid);
 		const newLocation = props.selectedLocation.title;
 		const locationKey = props.selectedLocation.key;
-		const setWithMerge = newFavorite.push({
-			newLocation,
-		});
-		// const docRef = await setDoc(doc(db, "favorites"), {
-		//   name: "Los Angeles",
-		//   state: "CA",
-		//   country: "USA",
-		// });
+		const setWithMerge = newFavorite.set(
+			{ [newLocation]: newLocation },
+			{ merge: true }
+		);
+	}
 
-		// const userRef = db.collection("users").doc(doc);
-		// await updateDoc(userRef, {
-		//   doctest: "doc",
-		// });
+	async function getFavorites() {
+		await fetch(
+			`https://firestore.googleapis.com/v1/projects/festival-finder-ae96d/databases/(default)/documents/favorites/${uid}?key=${process.env.GOOGLE_API}`
+		)
+			// await fetch(
+			// 	"https://firestore.googleapis.com/v1/projects/festival-finder-ae96d/databases/(default)/documents/favorites/l8wQjWMV3uRDPmQeGoqxXtgAI3l2?key=$AIzaSyDhYqjthsZ_I75BCbKrytwq67_uqfRQ-wU"
+			// )
+			.then((response) => response.json())
+			.then((data) => setFavorites(data.fields));
+	}
 
-		// try {
-		//   const docRef = await addDoc(collection(db, "users"), {
-		//     haha: "haha",
-		//   });
-		// } catch (err) {
-		//   console.error(err);
-		//   alert("An error occured while SETTING user data");
-		// }
+	function updateFavorites() {
+		console.log("Favorites!!!", favorites);
+		let favoritesList = [];
+		for (const favorite of favorites) {
+			favoritesList.push(favorite.name);
+		}
+		console.log(favoritesList);
+		setFavorites(favoritesList);
 	}
 
 	useEffect(() => {
@@ -79,25 +83,6 @@ function Dashboard(props) {
 		console.log(props.userLocation);
 	};
 
-	// function handleLocationError(error) {
-	//   switch (error.code) {
-	//     case error.PERMISSION_DENIED:
-	//       alert("User denied the request for Geolocation.");
-	//       break;
-	//     case error.POSITION_UNAVAILABLE:
-	//       alert("Location information is unavailable.");
-	//       break;
-	//     case error.TIMEOUT:
-	//       alert("The request to get user location timed out.");
-	//       break;
-	//     case error.UNKNOWN_ERROR:
-	//       alert("An unknown error occurred.");
-	//       break;
-	//   }
-	// }
-
-	console.log("selectedLocation", props.selectedLocation);
-	console.log("uid", uid);
 	// function onMarkerClick(marker) {
 	//   props.setSelectedLocation(marker);
 	// }
@@ -108,6 +93,9 @@ function Dashboard(props) {
 				id="map"
 				getLocation={getLocation}
 				locations={props.locations}
+				favorites={favorites}
+				getFavorites={getFavorites}
+				updateFavorites={updateFavorites}
 				userLocation={props.userLocation}
 				selectedLocation={props.selectedLocation}
 				setSelectedLocation={props.setSelectedLocation}
@@ -121,7 +109,9 @@ function Dashboard(props) {
 						className="dashboard__btn"
 						onClick={(e) => {
 							e.preventDefault();
-							window.location.href = `${props.selectedLocation.link}`;
+							window.open(`${props.selectedLocation.link}`, "_blank");
+							addToFavorites();
+							getFavorites();
 						}}
 					>
 						Take me there!
@@ -129,6 +119,15 @@ function Dashboard(props) {
 				</div>
 			) : (
 				<div className="dashboard__container">
+					<div
+						style={{
+							fontWeight: "bold",
+							marginBottom: ".5%",
+							fontSize: "1.5rem",
+						}}
+					>
+						Welcome, {name}:
+					</div>
 					<div>{"Click a candle"}</div>
 					<div>{"to learn more!"}</div>
 					<button className="dashboard__btn" onClick={logout}>
